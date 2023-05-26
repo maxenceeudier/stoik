@@ -1,7 +1,7 @@
 import { UrlService } from './url.service';
-import { Body, Controller, Get, Param, Post, Query, Redirect } from '@nestjs/common';
-import { randomBytes } from 'crypto';
-import { nanoid } from 'nanoid'
+import { Body, Controller, Get, Param, Post, Redirect } from '@nestjs/common';
+import { nanoid } from 'nanoid';
+
 
 interface UrlMapping {
   [slug: string]: string;
@@ -22,8 +22,7 @@ export class UrlController {
   shortenUrl(@Body('long_url') longUrl: string): { shortUrl: string } {
     const slug = nanoid(5);
     this.urlMappings[slug] = longUrl;
-    console.log(this.urlMappings)
-    const shortUrl = `http://localhost:3000/${slug}`;
+    const shortUrl = `${process.env.API_URL}/${slug}`;
     return { shortUrl };
   }
 

@@ -26,8 +26,7 @@ let UrlController = class UrlController {
     shortenUrl(longUrl) {
         const slug = (0, nanoid_1.nanoid)(5);
         this.urlMappings[slug] = longUrl;
-        console.log(this.urlMappings);
-        const shortUrl = `http://localhost:3000/${slug}`;
+        const shortUrl = `${process.env.API_URL}/${slug}`;
         return { shortUrl };
     }
 };
