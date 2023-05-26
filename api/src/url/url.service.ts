@@ -6,8 +6,8 @@ import { Url } from "./url.entity";
 @Injectable()
 export class UrlService {
   constructor(
-    @InjectRepository(Url)
-    private readonly UrlRepository: Repository<Url>,
+   //@InjectRepository(Url)
+    //private readonly UrlRepository: Repository<Url>,
   ) {}
 
 

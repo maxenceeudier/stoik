@@ -8,7 +8,7 @@ import { UrlModule } from './url/url.module';
 
 @Module({
     imports: [
-    ConfigModule.forRoot({
+    /*ConfigModule.forRoot({
       isGlobal: true,
     }),
     TypeOrmModule.forRootAsync({
@@ -25,7 +25,7 @@ import { UrlModule } from './url/url.module';
         autoLoadEntities: true,
         synchronize: true,
       }),
-    }),
+    }),*/
     UrlModule,
   ],
   controllers: [AppController],
