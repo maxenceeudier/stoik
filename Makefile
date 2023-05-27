@@ -1,6 +1,9 @@
 prod:	
 		cd api && docker-compose up --build 
 
+dev: 
+		cd api && docker-compose -f docker-compose.yml -f docker-compose.dev.yml up
+
 re-prod:	stop prod
 
 stop:	

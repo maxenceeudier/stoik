@@ -19,8 +19,8 @@ export class Url {
   updated_at!: Date | null;
 
   @Column("varchar", { length: 255, unique: true})
-  bigUrl!: string;
+  url!: string;
 
   @Column("varchar", { length: 255, unique: true})
-  smallUrl!: string;
+  code!: string;
 }

@@ -10,7 +10,7 @@ import { UrlModule } from './url/url.module';
     imports: [
     ConfigModule.forRoot({
       isGlobal: true,
-    }),/*
+    }),
     TypeOrmModule.forRootAsync({
       imports: [ConfigModule],
       inject: [ConfigService],
@@ -25,7 +25,7 @@ import { UrlModule } from './url/url.module';
         autoLoadEntities: true,
         synchronize: true,
       }),
-    }),*/
+    }),
     UrlModule,
   ],
   controllers: [AppController],
