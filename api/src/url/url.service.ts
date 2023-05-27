@@ -26,10 +26,7 @@ export class UrlService {
       url.url = longUrl;
       await this.urlRepository.save(url);
     }
-    console.log(process.env.POSTGRES_PORT);
     const shortUrl = `${process.env.API_URL}/${url.code}`;
     return {shortUrl}
   }
-
-
 }
