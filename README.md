@@ -39,6 +39,10 @@ The POST endpoint allows you to shorten a given URL. It will return a shortened 
 # GET Endpoint
 If you copy and paste the shortened URL received from the POST endpoint, you will be redirected to the original URL.
 
+# Adminer
+To access to the database you can go to the following url: http://localhost:5430
+And put the right data to connect to the database.
+
 Please ensure you have the necessary environment variables configured and follow the provided commands to run, rebuild, stop, or clean the project.
 
 
