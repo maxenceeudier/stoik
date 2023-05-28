@@ -44,12 +44,3 @@ To access to the database you can go to the following url: http://localhost:5430
 And put the right data to connect to the database.
 
 Please ensure you have the necessary environment variables configured and follow the provided commands to run, rebuild, stop, or clean the project.
-
-
-
-
-
-
-
-
-

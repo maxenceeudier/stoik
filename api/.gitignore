@@ -1,0 +1,17 @@
+# nestjs
+dist
+uploads/
+
+# misc
+.DS_Store
+*.pem
+nohup.out
+*.swp
+.vscode/
+
+# debug
+npm-debug.log*
+.pnpm-debug.log*
+
+# local env files
+.env
