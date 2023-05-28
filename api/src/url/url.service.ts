@@ -21,8 +21,16 @@ export class UrlService {
     let url = await this.urlRepository.findOneBy({url: longUrl});
     if (!url)
     {
+      let numLetter = 6;
+      let code = nanoid(numLetter);
+      let codeExist = await this.urlRepository.findOneBy({code: code})
+      while (codeExist)
+      {
+        code = nanoid(numLetter++);
+        codeExist = await this.urlRepository.findOneBy({code: code});
+      }
       url = new Url();
-      url.code = nanoid(6);
+      url.code = code;
       url.url = longUrl;
       await this.urlRepository.save(url);
     }

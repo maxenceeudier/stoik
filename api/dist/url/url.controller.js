@@ -13,40 +13,37 @@ var __param = (this && this.__param) || function (paramIndex, decorator) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.UrlController = void 0;
+const url_service_1 = require("./url.service");
 const common_1 = require("@nestjs/common");
-const nanoid_1 = require("nanoid");
 let UrlController = class UrlController {
-    constructor() {
-        this.urlMappings = {};
+    constructor(urlService) {
+        this.urlService = urlService;
     }
-    redirectToLongUrl(slug) {
-        const longUrl = this.urlMappings[slug];
-        return { url: longUrl };
+    redirectToLongUrl(code) {
+        return this.urlService.redirectToLongUrl(code);
     }
     shortenUrl(longUrl) {
-        const slug = (0, nanoid_1.nanoid)(5);
-        this.urlMappings[slug] = longUrl;
-        const shortUrl = `${process.env.API_URL}/${slug}`;
-        return { shortUrl };
+        return this.urlService.shortenUrl(longUrl);
     }
 };
 __decorate([
-    (0, common_1.Get)(':slug'),
+    (0, common_1.Get)(':code'),
     (0, common_1.Redirect)('', 302),
-    __param(0, (0, common_1.Param)('slug')),
+    __param(0, (0, common_1.Param)('code')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", Object)
+    __metadata("design:returntype", Promise)
 ], UrlController.prototype, "redirectToLongUrl", null);
 __decorate([
     (0, common_1.Post)('/shorten/'),
     __param(0, (0, common_1.Body)('long_url')),
     __metadata("design:type", Function),
     __metadata("design:paramtypes", [String]),
-    __metadata("design:returntype", Object)
+    __metadata("design:returntype", Promise)
 ], UrlController.prototype, "shortenUrl", null);
 UrlController = __decorate([
-    (0, common_1.Controller)()
+    (0, common_1.Controller)(),
+    __metadata("design:paramtypes", [url_service_1.UrlService])
 ], UrlController);
 exports.UrlController = UrlController;
 //# sourceMappingURL=url.controller.js.map

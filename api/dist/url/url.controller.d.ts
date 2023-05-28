@@ -1,9 +1,11 @@
+import { UrlService } from './url.service';
 export declare class UrlController {
-    private urlMappings;
-    redirectToLongUrl(slug: string): {
+    private readonly urlService;
+    constructor(urlService: UrlService);
+    redirectToLongUrl(code: string): Promise<{
         url: string;
-    };
-    shortenUrl(longUrl: string): {
+    }>;
+    shortenUrl(longUrl: string): Promise<{
         shortUrl: string;
-    };
+    }>;
 }

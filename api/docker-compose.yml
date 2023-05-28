@@ -4,12 +4,15 @@ services:
   api:
     build:
       context: .
+      target: development
       dockerfile: Dockerfile
     container_name: api
     image: stoik/api:nestjs9
     depends_on:
       database:
         condition: service_healthy
+    links:
+      - database
     restart: always
     environment:
       DATABASE_HOST: ${DATABASE_HOST}
@@ -21,6 +24,8 @@ services:
       API_URL: ${API_URL}
     networks:
       - app
+    volumes:
+      - ./:/usr/src/app
   database:
     image: postgres
     container_name: database

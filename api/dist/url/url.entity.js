@@ -28,11 +28,11 @@ __decorate([
 __decorate([
     (0, typeorm_1.Column)("varchar", { length: 255, unique: true }),
     __metadata("design:type", String)
-], Url.prototype, "bigUrl", void 0);
+], Url.prototype, "url", void 0);
 __decorate([
     (0, typeorm_1.Column)("varchar", { length: 255, unique: true }),
     __metadata("design:type", String)
-], Url.prototype, "smallUrl", void 0);
+], Url.prototype, "code", void 0);
 Url = __decorate([
     (0, typeorm_1.Entity)()
 ], Url);
