@@ -5,6 +5,8 @@ To run the project, follow these steps:
 
  1. Create a .env file at the root of the project, using the provided .env.template.
 
+ 2. Run "npm install --prefix api" to install node_module
+
  2. Open your terminal and navigate to the root of the project.
 
  3. Run the command make. This will launch basic tests and start the project in development mode.
