@@ -6,7 +6,7 @@ re-dev:	stop dev
 stop:	
 	cd api && docker-compose -f docker-compose.yml down
 
-clean:
+clean: stop
 	docker system prune -a && docker volume prune
 
 .PHONY: dev stop re-dev clean
