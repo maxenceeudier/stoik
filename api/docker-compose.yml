@@ -54,6 +54,14 @@ services:
       interval: 5s
       timeout: 5s
       retries: 50
+  adminer:
+    image: adminer
+    container_name: adminer
+    restart: unless-stopped
+    ports:
+      - 5430:8080
+    networks:
+      - app
 
 networks:
   app:

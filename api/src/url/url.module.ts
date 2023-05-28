@@ -11,6 +11,6 @@ import { UrlController } from './url.controller';
   ],
   providers: [UrlService],
   controllers: [UrlController],
-  exports: [ TypeOrmModule, UrlService],/*TypeOrmModule,*/
+  exports: [ TypeOrmModule, UrlService],
 })
 export class UrlModule {}
