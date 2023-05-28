@@ -20,28 +20,7 @@ RUN npm install --only=development
 # Bundle app source
 COPY  . .
 
-# Use the node user from the image (instead of the root user)
+EXPOSE 3000
 
 CMD ["npm", "run", "start"]
 
-###################
-# PRODUCTION
-###################
-
-FROM node:18-alpine As production
-ARG NODE_ENV=production
-ENV NODE_ENV=${NODE_ENV}
-
-WORKDIR /usr/src/app
-
-COPY  package*.json ./
-
-RUN npm install --only=production
-
-COPY  . .
-# Copy the bundled code from the build stage to the production image
-
-COPY  --from=development /usr/src/app/dist ./dist
-
-# Start the server using the production build
-CMD [ "node",  "dist/main" ]

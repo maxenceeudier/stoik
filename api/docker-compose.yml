@@ -26,6 +26,8 @@ services:
       - app
     volumes:
       - ./:/usr/src/app
+    ports:
+      - 3000:3000
   database:
     image: postgres
     container_name: database
@@ -52,18 +54,6 @@ services:
       interval: 5s
       timeout: 5s
       retries: 50
-  server:
-    image: nginx:stable-alpine
-    container_name: stoik-nginx
-    depends_on:
-      - api
-    restart: always
-    networks:
-      - app
-    volumes:
-      - ./confignginx:/etc/nginx/templates
-    ports:
-      - 3000:80
 
 networks:
   app:
