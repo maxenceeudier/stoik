@@ -3,13 +3,13 @@
 # Setup
 To run the project, follow these steps:
 
- 1. Create a .env file at the root of the project, using the provided .env.template.
-
- 2. Run "npm install --prefix api" to install node_module
+ 1. Create a .env file in the api folder, using the provided .env.template.
 
  2. Open your terminal and navigate to the root of the project.
 
- 3. Run the command make. This will launch basic tests and start the project in development mode.
+ 3. Run "npm install --prefix api" to install node_module
+
+ 4. Run the command make. This will launch basic tests and start the project in development mode.
 
 # Commands
  1. make re-dev: Stops and rebuilds the project.

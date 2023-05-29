@@ -59,10 +59,12 @@ describe('urlController', () => {
   describe('shortenUrl', () => {
     it('/shorten/ (POST)', async () => {
         const long_url = 'https://medium.com/equify-tech/the-three-fundamental-stages-of-an-engineering-career-54dac732fc74';
-        const shortUrl = `${process.env.API_URL}/ptl0PV`;
         const res = await request(app.getHttpServer())
         .post('/shorten')
         .send({ long_url })
+
+        const url = await urlRepository.findOneBy({url: long_url});
+        const shortUrl = `${process.env.API_URL}/${url.code}`;
         expect(res.status).toBe(201);
         expect(res.body).toEqual({ shortUrl });
     });
@@ -72,7 +74,8 @@ describe('urlController', () => {
   describe('longUrl', () => {
     it('/:code (GET)', async () => {
         const longUrl = 'https://medium.com/equify-tech/the-three-fundamental-stages-of-an-engineering-career-54dac732fc74';
-        const code = 'ptl0PV';
+        const url = await urlRepository.findOneBy({url: longUrl});
+        const code = url.code;
         const res = await request(app.getHttpServer())
         .get(`/${code}`)
         expect(res.status).toBe(302);
